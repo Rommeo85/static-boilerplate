@@ -1,0 +1,26 @@
+section#contact.section
+  .row
+    .columns.xxs-12
+      h3 Kontakt
+
+  .row
+    .sm-6.columns
+      form(action="#", method="post")
+        .row
+          .xxs-12.sm-6.columns
+            label.required Name#[em *]
+              input(type="text", placeholder="Ihr Name", name="name", required)
+          .xxs-12.sm-6.columns
+            label.required Email#[em *]
+              input(type="email", placeholder="Ihre Email-Adresse", name="email", required)
+        label Telefonnummer
+          input(type="tel", placeholder="Ihre Telefonnummer", name="phone")
+        label.required Nachricht#[em *]
+          textarea(placeholder="Ihre Nachricht", name="message", rows="4" required)
+        button.button(type="submit") Senden
+    .xxs-12.sm-6.columns
+      h4
+        +lipsum(2, 'words')
+      p
+        +lipsum(4, 'sentences')
+      +hcard

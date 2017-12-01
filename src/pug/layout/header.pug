@@ -1,0 +1,17 @@
+.row
+  .columns.xxs-12
+    .header-inner
+      h1.logo
+        span.show-for-sr Title
+        a(href="/")
+          img(src=imgSrc('logo.svg') alt="Logo title")
+      nav.nav
+        ul.vertical.sm-horizontal.menu.nav-main
+          -
+            var navList = {
+              '#about': 'Über mich',
+              '#contact': 'Kontakt'
+            }
+          each label, url in navList
+            li
+              a(href=url)= label

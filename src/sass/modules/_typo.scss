@@ -1,0 +1,10 @@
+@include foundation-typography;
+
+.txt-small,
+.copyright {
+  font-size: rem-calc(13);
+}
+
+.txt-light {
+  color: $dark-gray;
+}

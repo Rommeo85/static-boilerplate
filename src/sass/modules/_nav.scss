@@ -1,0 +1,84 @@
+@include foundation-menu;
+
+.nav {
+  position: relative;
+}
+
+.nav-holder {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 30px;
+
+  .show-nav & {
+    display: block;
+    padding: $global-padding;
+    background: $white;
+    box-shadow: 0 0 4px rgba($black, 0.4);
+  }
+
+  @include breakpoint(sm) {
+    display: block;
+    position: static;
+  }
+}
+
+.nav-main {
+  padding: 0;
+  display: none;
+
+  > li > a {
+    text-decoration: none;
+    color: $body-font-color;
+    text-transform: uppercase;
+    font-weight: 300;
+    white-space: nowrap;
+
+    &:hover,
+    &.current {
+      color: $primary-color;
+    }
+
+    @include breakpoint(md) {
+      letter-spacing: 1px;
+    }
+
+    @include breakpoint(md down) {
+      font-size: $font-size-sm;
+    }
+  }
+
+  @include breakpoint(sm) {
+    display: flex;
+  }
+
+  .sidebar & {
+    display: block;
+
+    > li > a {
+      color: $white;
+
+      &:hover,
+      &.current {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+.nav-toggle {
+  @include hamburger(
+    $color: $primary-color,
+    $width: 26px,
+    $height: 22px,
+    $weight: 3px
+  );
+
+  &:focus {
+    outline: 0;
+  }
+
+  @include breakpoint(sm) {
+    display: none;
+  }
+}

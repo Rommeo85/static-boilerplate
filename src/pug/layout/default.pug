@@ -1,0 +1,23 @@
+include ../mixins/helper
+include ../mixins/elements
+block vars
+doctype html
+html.no-js(lang="de")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="profile", href="http://microformats.org/profile/hcard")
+    link(href="css/style.css", rel="stylesheet")
+    link(href="//fonts.googleapis.com/css?family=Roboto:300,400,700", rel="stylesheet")
+    include ../../../dist/assets/favicons/favicons.html
+    title= pageTitle
+    script(src="js/modernizr.js")
+  body
+    #page.page
+      header#header.header
+        include header
+      main#main.main
+        block content
+      footer#footer.footer
+        include footer
+    script(src="js/app.js")

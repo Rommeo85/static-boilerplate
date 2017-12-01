@@ -1,0 +1,8 @@
+@include foundation-form-text;
+@include foundation-form-label;
+
+.required {
+  em {
+    color: $alert-color;
+  }
+}

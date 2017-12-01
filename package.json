@@ -1,0 +1,64 @@
+{
+  "name": "static-boilerplate",
+  "description": "Static html pages generator",
+  "author": "rommeo85@gmail.com",
+  "version": "0.1.0",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
+    "browserify": "^14.5.0",
+    "css-mqpacker": "^6.0.1",
+    "cssnano": "^3.10.0",
+    "favicons": "^4.8.6",
+    "font-awesome": "^4.7.0",
+    "foundation-sites": "^6.4.4-rc1",
+    "glob": "^7.1.2",
+    "mkdirp": "^0.5.1",
+    "modernizr": "^3.5.0",
+    "ncp": "^2.0.0",
+    "node-sass": "^4.7.2",
+    "npm-run-all": "^4.1.2",
+    "onchange": "^3.2.1",
+    "postcss": "^6.0.14",
+    "postcss-cli": "^4.1.1",
+    "pug": "^2.0.0-rc.4",
+    "pug-cli": "^1.0.0-alpha6",
+    "rimraf": "^2.6.2",
+    "uglify-js": "^3.2.0",
+    "viewport": "Rommeo85/viewport#v0.1.2"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "env"
+          ]
+        }
+      ]
+    ]
+  },
+  "scripts": {
+    "assets": "mkdirp dist/assets && ncp src/assets dist/assets && ncp node_modules/font-awesome/fonts dist/assets/fonts",
+    "favicons": "node favicons.js",
+    "css": "node-sass src/sass -o dist/css --importer config/sass-importer.js --include-path node_modules",
+    "postcss": "postcss dist/css/*.css -c config -r",
+    "pug": "pug src/pug/pages -o dist -O config/pug.js",
+    "modernizr": "modernizr -c config/modernizr.json -d dist/js/modernizr.js",
+    "js": "browserify src/js/app.js > dist/js/app.js",
+    "uglifyjs": "uglifyjs dist/js/app.js -o dist/js/app.js & uglifyjs dist/js/modernizr.js -o dist/js/modernizr.js",
+    "cleanup": "rimraf -rf sass/.tmp",
+    "destroy": "rimraf -rf dist",
+    "dev": "run-s destroy assets favicons pug css modernizr js cleanup",
+    "build": "NODE_ENV=prd run-s dev uglifyjs",
+    "watch:sass": "onchange \"src/sass/**/*\" -e \"src/sass/.tmp/**/*\" -- yarn css",
+    "watch:pug": "onchange \"src/pug/**/*\" -- yarn pug -P",
+    "watch:assets": "onchange \"src/assets/**/*\" -- yarn run-p assets favicons",
+    "watch:js": "onchange \"src/js/**/*\" -- yarn js",
+    "watch": "run-p watch:*"
+  }
+}

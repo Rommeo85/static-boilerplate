@@ -1,0 +1,13 @@
+.footer {
+  padding: 20px 0;
+
+  &,
+  a {
+    color: rgba($white, 0.8);
+  }
+
+  a:hover {
+    color: $white;
+  }
+}
+

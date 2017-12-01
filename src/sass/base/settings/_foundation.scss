@@ -1,0 +1,42 @@
+$flex: true;
+$global-padding: 16px;
+$global-width: $screen-lg - $global-padding * 2;
+$global-flexbox: true;
+$body-font-family: 'Roboto', sans-serif;
+
+$light-gray: #e6e6e6;
+$medium-gray: #cacaca;
+$dark-gray: #8a8a8a;
+
+$print-breakpoint: lg;
+$-zf-zero-breakpoint: xxs;
+$breakpoint-classes: (xxs xs sm md lg);
+$grid-column-gutter: (xxs: 20px, md: 30px);
+$header-styles: (
+        xxs: (
+                'h1': ('font-size': 24),
+                'h2': ('font-size': 20),
+                'h3': ('font-size': 19),
+                'h4': ('font-size': 18),
+                'h5': ('font-size': 17),
+                'h6': ('font-size': 16),
+        ),
+        sm: (
+                'h1': ('font-size': 48),
+                'h2': ('font-size': 40),
+                'h3': ('font-size': 31),
+                'h4': ('font-size': 25),
+                'h5': ('font-size': 20),
+                'h6': ('font-size': 16),
+        ),
+);
+
+$foundation-palette: (
+        primary: #e44d26,
+        secondary: #686867,
+        success: #3adb76,
+        warning: #ffae00,
+        alert: #ec5840,
+) !default;
+
+$body-background: map-get($foundation-palette, primary);
