@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "devDependencies": {
+    "app-ico": "Rommeo85/app-ico#v0.1.1",
     "autoprefixer": "^7.1.6",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
@@ -12,7 +13,6 @@
     "browserify": "^14.5.0",
     "css-mqpacker": "^6.0.1",
     "cssnano": "^3.10.0",
-    "favicons": "^4.8.6",
     "font-awesome": "^4.7.0",
     "foundation-sites": "^6.4.4-rc1",
     "glob": "^7.1.2",
@@ -44,7 +44,7 @@
   },
   "scripts": {
     "assets": "mkdirp dist/assets && ncp src/assets dist/assets && ncp node_modules/font-awesome/fonts dist/assets/fonts",
-    "favicons": "node favicons.js",
+    "favicons": "app-ico -c config/favicons",
     "css": "node-sass src/sass -o dist/css --importer config/sass-importer.js --include-path node_modules",
     "postcss": "postcss dist/css/*.css -c config -r",
     "pug": "pug src/pug/pages -o dist -O config/pug.js",
