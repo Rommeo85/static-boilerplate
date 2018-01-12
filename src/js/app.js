@@ -1,7 +1,7 @@
 import ready from './lib/dom/ready';
 
 ready(() => {
-  const View = require('viewport');
+  const View = require('viewport-mq');
   const view = new View(require('../../config/viewports'));
 
   function addSidebar() {
