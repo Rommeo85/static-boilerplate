@@ -5,5 +5,5 @@ node_js:
 
 jobs:
   include:
-    - stage: build
+    - stage: test
       script: yarn build
